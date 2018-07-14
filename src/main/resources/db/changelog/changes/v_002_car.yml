@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: ppolena
+      changes:
+      - createTable:
+          tableName: car
+          columns:
+          - column:
+              name: car_id
+              type: varchar2(50)
+              constraints:
+                primaryKey: true
+          - column:
+              name: name
+              type: varchar2(50)
+              constraints:
+                nullable: false
+          - column:
+              name: brand
+              type: varchar2(50)
+              constraints:
+                nullable: false
+          - column:
+              name: year
+              type: int
+              constraints:
+                nullable: false
+          - column:
+              name: condition
+              type: varchar2(50)
+              constraints:
+                nullable: false
+        constraints:
+          foreignKeyName: fk_owner_id
+          references: person(person_id)
